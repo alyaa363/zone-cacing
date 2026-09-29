@@ -1,0 +1,35 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;background:radial-gradient(circle at top,#213c42,#0a1117 65%);color:#fff;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;padding:18px}
+.game{width:min(960px,100%);filter:drop-shadow(0 20px 40px #0008)}
+.topbar{height:78px;background:linear-gradient(135deg,#1c3038,#17242d);border:1px solid #3c5862;border-radius:20px 20px 0 0;display:flex;align-items:center;justify-content:space-between;padding:10px 22px}
+.brand{display:flex;align-items:center;gap:12px}.brand>span{font-size:38px}.brand h1{font-size:24px;letter-spacing:2px}.brand small{color:#8fa8b1}
+.stats{display:flex;gap:12px}.stats div{min-width:92px;text-align:center;background:#111d24;border:1px solid #354d56;border-radius:12px;padding:7px 12px}.stats small{display:block;color:#91a7ae;font-size:10px}.stats b{font-size:19px}
+.arena{position:relative;border:1px solid #3c5862;border-top:0;border-radius:0 0 20px 20px;overflow:hidden;background:#10251c}
+canvas{display:block;width:100%;height:auto}
+.screen{position:absolute;inset:0;background:rgba(3,10,13,.78);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;z-index:10}
+.hidden{display:none!important}
+.card{width:min(475px,100%);padding:32px;border-radius:25px;background:linear-gradient(145deg,#21353d,#17252d);border:1px solid #4b6872;box-shadow:0 20px 60px #0009}
+.logo,.dead{font-size:52px;margin-bottom:8px}.card h2{font-size:36px;margin-bottom:12px}.card p{color:#c8d6da;line-height:1.5;margin:5px}.danger{color:#ffb7b7!important}.card h3{margin:23px 0 12px}
+.colors{display:flex;justify-content:center;gap:13px;margin-bottom:19px;flex-wrap:wrap}.color{width:42px;height:42px;border-radius:50%;background:var(--c);border:3px solid transparent;cursor:pointer;box-shadow:inset 0 2px 4px #fff6,0 4px 8px #0005;transition:.2s}.color.active{border-color:#fff;transform:scale(1.15)}
+.food-list{background:#122129;border:1px solid #304852;padding:10px;border-radius:10px;margin-bottom:18px;font-size:14px}
+#startBtn,#restartBtn{width:100%;padding:14px;border:0;border-radius:12px;background:linear-gradient(135deg,#55e878,#2bc45d);color:#06220e;font-weight:bold;font-size:17px;cursor:pointer;position:relative;z-index:20;pointer-events:auto}
+#startBtn:hover,#restartBtn:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.controls{font-size:13px;color:#91a7ae;margin-top:12px}.result{background:#111d24;padding:12px;border-radius:12px;margin:18px 0}.result strong{display:block;font-size:28px;margin-top:3px}
+@media(max-width:650px){body{padding:5px}.topbar{height:auto;padding:10px;gap:8px}.brand h1{font-size:18px}.brand small{font-size:10px}.brand>span{font-size:28px}.stats div{min-width:65px;padding:5px}.stats b{font-size:15px}.card{padding:22px}}
+#joystick{display:flex;position:fixed;right:24px;bottom:24px;width:132px;height:132px;border-radius:50%;background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.25);box-shadow:0 8px 25px #0006;z-index:30;touch-action:none;cursor:pointer;user-select:none}
+#joystick:after{content:"";position:absolute;inset:24px;border-radius:50%;border:1px dashed rgba(255,255,255,.25)}
+#stick{position:absolute;left:50%;top:50%;width:58px;height:58px;border-radius:50%;transform:translate(-50%,-50%);background:linear-gradient(145deg,#ff79a8,#ff4f88);box-shadow:0 6px 15px #0006;z-index:2;pointer-events:none}
+@media (max-width: 800px), (pointer: coarse){
+ #joystick{display:flex}
+ body{padding:0;overflow:hidden}
+ .game{width:100vw;height:100vh}
+ .topbar{border-radius:0;height:70px}
+ .arena{height:calc(100vh - 70px);border-radius:0}
+ canvas{width:100%;height:100%;object-fit:contain}
+ .card h2{font-size:30px}
+}
+
+
+/* Joystick hanya muncul di HP/tablet, tidak di PC */
+#joystick{display:none !important;}
+@media (max-width:900px) and (pointer: coarse){#joystick{display:flex !important;position:fixed;right:16px;bottom:16px;width:120px;height:120px;z-index:9999;}}

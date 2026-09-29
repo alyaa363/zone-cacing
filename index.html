@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zona Cacing</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game">
+<header class="topbar">
+  <div class="brand"><span>🐍</span><div><h1>ZONA CACING</h1><small>Grow • Dodge • Survive</small></div></div>
+  <div class="stats"><div><small>KESEMPATAN</small><b id="lives">3 ❤️</b></div>
+    <div><small>SKOR</small><b id="score">0</b></div>
+    <div><small>WAKTU</small><b><span id="time">200</span>s</b></div>
+  </div>
+</header>
+<div class="arena">
+<canvas id="gameCanvas" width="900" height="560"></canvas>
+
+<div id="startScreen" class="screen">
+ <div class="card">
+  <div class="logo">🐛</div>
+  <h2>Zona Cacing</h2>
+  <p>Makan makanan supaya cacingmu semakin panjang.</p>
+  <p class="danger">⚠️ Jangan menabrak cacing lain!</p>
+  <h3>Pilih warna cacing</h3>
+  <div class="colors">
+   <button class="color active" data-color="#55e878" style="--c:#55e878"></button>
+   <button class="color" data-color="#4db5ff" style="--c:#4db5ff"></button>
+   <button class="color" data-color="#ff5d91" style="--c:#ff5d91"></button>
+   <button class="color" data-color="#ffd34d" style="--c:#ffd34d"></button>
+   <button class="color" data-color="#b66cff" style="--c:#b66cff"></button>
+   <button class="color" data-color="#ff914d" style="--c:#ff914d"></button>
+  </div>
+  <div class="food-list">🍎 +10 &nbsp; 🍓 +15 &nbsp; 🍇 +20 &nbsp; 🍊 +12 &nbsp; 🍉 +25</div>
+  <button id="startBtn" type="button">MULAI GAME</button>
+  <div class="controls">PC: WASD / Arrow Keys • Android: gunakan joystick</div>
+ </div>
+</div>
+
+<div id="gameOverScreen" class="screen hidden">
+ <div class="card">
+  <div class="dead">💥</div>
+  <h2>GAME OVER</h2>
+  <p>Cacingmu bertabrakan dengan cacing lain.</p>
+  <div class="result">SKOR AKHIR <strong id="finalScore">0</strong></div>
+  <button id="restartBtn" type="button">MAIN LAGI</button>
+ </div>
+</div>
+</div>
+</div>
+<div id="joystick" aria-label="Joystick Virtual"><div id="stick"></div></div>
+<script src="script.js"></script>
+</body>
+</html>
